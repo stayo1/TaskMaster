@@ -55,7 +55,7 @@ app.get('/api/tasks/:id', async (req, res) => {
 
 // יצירת משימה חדשה
 app.post('/api/tasks', async (req, res) => {
-    const { title, description, status, priority, due_date } = req.body;
+    const { title, description, status, priority = 3, due_date } = req.body;
     try {
         const result = await pool.query(
             `INSERT INTO tasks (title, description, status, priority, due_date)
@@ -73,7 +73,7 @@ app.post('/api/tasks', async (req, res) => {
 // עדכון משימה
 app.put('/api/tasks/:id', async (req, res) => {
     const { id } = req.params;
-    const { title, description, status, priority, due_date } = req.body;
+    const { title, description, status, priority = 3, due_date } = req.body;
     try {
         const result = await pool.query(
             `UPDATE tasks
