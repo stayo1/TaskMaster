@@ -14,7 +14,7 @@ export default function TaskForm() {
     priority: '',      // עכשיו מספר 1–5
   });
   const [loading, setLoading] = useState(isEdit);
-  const [error, setError]     = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     if (!isEdit) return;
@@ -22,10 +22,10 @@ export default function TaskForm() {
       .then(res => res.ok ? res.json() : Promise.reject('Task not found'))
       .then(data => {
         setForm({
-          title:       data.title        || '',
-          description: data.description  || '',
-          due_date:    data.due_date     ? data.due_date.slice(0,10) : '',
-          priority:    data.priority     ? Number(data.priority) : '',
+          title: data.title || '',
+          description: data.description || '',
+          due_date: data.due_date ? data.due_date.slice(0, 10) : '',
+          priority: data.priority ? Number(data.priority) : '',
         });
         setLoading(false);
       })
@@ -48,7 +48,7 @@ export default function TaskForm() {
     const endpoint = isEdit
       ? `http://localhost:5000/api/tasks/${id}`
       : `http://localhost:5000/api/tasks`;
-    const method   = isEdit ? 'PUT' : 'POST';
+    const method = isEdit ? 'PUT' : 'POST';
 
     fetch(endpoint, {
       method,
@@ -72,7 +72,7 @@ export default function TaskForm() {
   };
 
   if (loading) return <div className="loading">טוען…</div>;
-  if (error)   return <div className="error">שגיאה: {error}</div>;
+  if (error) return <div className="error">שגיאה: {error}</div>;
 
   return (
     <div className="centered-text">
@@ -111,7 +111,7 @@ export default function TaskForm() {
           <div className="form-field">
             <label>Priority</label>
             <div className="priority-select">
-              {[1,2,3,4,5].map(n => (
+              {[1, 2, 3, 4, 5].map(n => (
                 <button
                   type="button"
                   key={n}

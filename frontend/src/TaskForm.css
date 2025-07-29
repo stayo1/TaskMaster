@@ -1,87 +1,82 @@
-/* ===== FORM CENTERING & CONTAINER ===== */
-.centered-text { /* כפי שהיה */ }
-.app-container  { /* כפי שהיה */ }
-.header         { /* כפי שהיה */ }
-
 /* ===== FORM & FIELDS ===== */
 .task-form {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .form-field {
-  border: 1px solid #888;
-  border-radius: 4px;
-  padding: 12px;
-  margin-bottom: 12px;
-  text-align: left;
+    border: 1px solid #888;
+    border-radius: 4px;
+    padding: 12px;
+    margin-bottom: 12px;
+    text-align: left;
 }
 
 .form-field label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 6px;
+    display: block;
+    font-weight: bold;
+    margin-bottom: 6px;
 }
 
 .form-field input,
 .form-field textarea {
-  width: 100%;
-  border: none;
-  outline: none;
-  font-size: 16px;
-  background: transparent;
-  resize: vertical;
-  padding: 4px 0;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background: transparent;
+    resize: vertical;
+    padding: 4px 0;
 }
 
 /* ===== PRIORITY SELECT BAR ===== */
 .priority-select {
-  display: flex;
-  justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 }
 
 .priority-select button {
-  flex: 1;
-  border: 1px solid #888;
-  background: none;
-  padding: 8px 0;
-  cursor: pointer;
-  font-size: 16px;
+    flex: 1;
+    border: 1px solid #888;
+    background: none;
+    padding: 8px 0;
+    cursor: pointer;
+    font-size: 16px;
 }
 
-.priority-select button + button {
-  margin-left: 4px;
+.priority-select button+button {
+    margin-left: 4px;
 }
 
 .priority-select button.selected {
-  background: #888;
-  color: #fff;
+    background: #888;
+    color: #fff;
 }
 
 /* ===== ACTION BUTTONS ===== */
 .form-actions {
-  display: flex;
-  border: 1px solid #888;
-  border-radius: 4px;
-  overflow: hidden;
-  margin-top: 16px;
+    display: flex;
+    border: 1px solid #888;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 16px;
 }
 
 .form-actions button {
-  flex: 1;
-  padding: 12px;
-  font-size: 16px;
-  background: none;
-  border: none;
-  cursor: pointer;
+    flex: 1;
+    padding: 12px;
+    font-size: 16px;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
-.form-actions button + button {
-  border-left: 1px solid #888;
+.form-actions button+button {
+    border-left: 1px solid #888;
 }
 
 /* ===== DELETE BUTTON SPECIFIC (Optional) ===== */
 .delete-btn {
-  border-color: #e00;
-  color: #e00;
+    border-color: #e00;
+    color: #e00;
 }

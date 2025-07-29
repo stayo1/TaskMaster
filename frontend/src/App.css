@@ -1,79 +1,76 @@
-/* ===== HOME (App.js) STYLES ===== */
-
 .centered-text {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
 }
 
 .app-container {
-  width: 100%;
-  max-width: 480px;
-  padding: 20px;
-  box-sizing: border-box;
+    width: 100%;
+    max-width: 480px;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .header {
-  padding-bottom: 12px;
-  border-bottom: 1px solid #ccc;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #ccc;
 }
 
 .toolbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 16px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 16px 0;
 }
 
 .btn {
-  border: 1px solid #888;
-  border-radius: 4px;
-  background: none;
-  cursor: pointer;
-  padding: 6px 12px;
+    border: 1px solid #888;
+    border-radius: 4px;
+    background: none;
+    cursor: pointer;
+    padding: 6px 12px;
 }
 
 .add-btn {
-  font-size: 24px;
-  line-height: 1;
+    font-size: 24px;
+    line-height: 1;
 }
 
-.sort-btn { /* אם יש צורך */
-}
+/* .sort-btn {} */
 
 .sort-icon {
-  margin-left: 6px;
+    margin-left: 6px;
 }
 
 .task-list {
-  margin-top: 12px;
+    margin-top: 12px;
 }
 
 .task-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px 0;
-  border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
 }
 
 .task-title,
 .task-status {
-  border: 1px solid #888;
-  border-radius: 4px;
-  padding: 4px 8px;
+    border: 1px solid #888;
+    border-radius: 4px;
+    padding: 4px 8px;
 }
 
 .task-title {
-  flex: 1;
-  margin-right: 8px;
-  cursor: pointer;
+    flex: 1;
+    margin-right: 8px;
+    cursor: pointer;
 }
 
 .task-status {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 /* ... הקוד הקודם שלך למסך הבית ... */
@@ -81,47 +78,47 @@
 /* בתוך קובץ App.css */
 
 .toolbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 16px 0;
-  position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 16px 0;
+    position: relative;
 }
 
 .sort-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
+    position: relative;
+    display: flex;
+    align-items: center;
 }
 
 .toggle-btn {
-  margin-left: 8px;
+    margin-left: 8px;
 }
 
 .sort-options {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  background: #fff;
-  border: 1px solid #888;
-  border-radius: 4px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  margin-top: 4px;
-  z-index: 10;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #fff;
+    border: 1px solid #888;
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    margin-top: 4px;
+    z-index: 10;
 }
 
-.sort-options > div {
-  padding: 8px 12px;
-  cursor: pointer;
-  white-space: nowrap;
+.sort-options>div {
+    padding: 8px 12px;
+    cursor: pointer;
+    white-space: nowrap;
 }
 
-.sort-options > div:hover {
-  background: #f0f0f0;
+.sort-options>div:hover {
+    background: #f0f0f0;
 }
 
 .delete-btn {
-  margin-left: 8px;
-  border-color: #e00;
-  color: #e00;
+    margin-left: 8px;
+    border-color: #e00;
+    color: #e00;
 }

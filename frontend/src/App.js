@@ -1,5 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react';
+import io from 'socket.io-client';
 import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import TaskForm from './TaskForm';
 import './App.css';
 
@@ -158,13 +161,27 @@ function Home() {
 }
 
 export default function App() {
+  useEffect(() => {
+    // מתחברים ל־Socket.io
+    const socket = io('http://localhost:5000');
+    // מאזינים לאירוע dueSoon
+    socket.on('dueSoon', ({ title, due_date }) => {
+      const when = new Date(due_date).toLocaleString();
+      toast.info(`משימה "${title}" פוגעת ב־${when}`);
+    });
+    return () => socket.disconnect();
+  }, []);
+
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/tasks/new" element={<TaskForm />} />
-        <Route path="/tasks/:id" element={<TaskForm />} />
-      </Routes>
-    </BrowserRouter>
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/tasks/new" element={<TaskForm />} />
+          <Route path="/tasks/:id" element={<TaskForm />} />
+        </Routes>
+      </BrowserRouter>
+      <ToastContainer position="bottom-right" />
+    </>
   );
 }
