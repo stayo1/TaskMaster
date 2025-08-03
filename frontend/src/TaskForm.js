@@ -11,7 +11,7 @@ export default function TaskForm() {
     title: '',
     description: '',
     due_date: '',
-    priority: '',      // עכשיו מספר 1–5
+    priority: '',     
   });
   const [loading, setLoading] = useState(isEdit);
   const [error, setError] = useState(null);

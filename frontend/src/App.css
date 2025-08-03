@@ -38,8 +38,6 @@
     line-height: 1;
 }
 
-/* .sort-btn {} */
-
 .sort-icon {
     margin-left: 6px;
 }
@@ -72,10 +70,6 @@
 .task-status {
     cursor: pointer;
 }
-
-/* ... הקוד הקודם שלך למסך הבית ... */
-
-/* בתוך קובץ App.css */
 
 .toolbar {
     display: flex;
