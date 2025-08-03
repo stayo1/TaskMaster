@@ -181,7 +181,7 @@ export default function App() {
           <Route path="/tasks/:id" element={<TaskForm />} />
         </Routes>
       </BrowserRouter>
-      <ToastContainer position="bottom-right" />
+      <ToastContainer position="bottom-right"/>
     </>
   );
 }
