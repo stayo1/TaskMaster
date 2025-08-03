@@ -1,103 +1,107 @@
-html, body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 16px;
-  color: #333;
-  margin: 0; padding: 0;
+html,body {
+  font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+  font-size:16px;color:#333;margin:0;padding:0;
 }
+
 .centered-text {
-  display:flex; justify-content:center; align-items:center;
-  height:100vh; text-align:center;
+  display:flex;justify-content:center;align-items:center;
+  height:100vh;text-align:center;
+  background-size:contain;
+  background-repeat:no-repeat;
+  background-position:center;
 }
+
 .app-container {
-  width:100%; max-width:480px; padding:20px; box-sizing:border-box;
+  width:100%;max-width:480px;
+  padding:20px;box-sizing:border-box;
+  background:rgba(255,255,255,0.8);
+  border-radius:8px;
 }
 
-/* ================ כותרת ================ */
 .header {
-  padding-bottom:12px; border-bottom:1px solid #ccc;
-}
-.header-input {
-  font-size:1.5em; font-weight:bold; text-align:center;
-  width:100%; border:none; border-bottom:1px dotted #888;
-  outline:none; background:transparent;
+  padding-bottom:12px;border-bottom:1px solid #ccc;
 }
 
-/* ================ toolbar ================ */
 .toolbar {
-  display:flex; justify-content:space-between; align-items:center;
-  margin:16px 0;
-}
-.toolbar .btn {
-  border:none; background:none; cursor:pointer;
-}
-/* הגדלת גודל כל כפתורי +, Sort, ⇅ */
-.add-btn,
-.sort-btn,
-.toggle-btn {
-  font-size:1.3em;
-  padding:8px 12px;
+  display:flex;align-items:center;margin:16px 0;
 }
 
-/* ================ sort dropdown ================ */
+.toolbar-left {
+  display:flex;align-items:center;
+}
+
+.toolbar-right {
+  margin-left:auto;
+  display:flex;align-items:center;
+}
+
+.btn {
+  border:none;background:none;cursor:pointer;
+}
+
+.add-btn,.brush-btn,.color-btn,
+.sort-btn,.toggle-btn {
+  font-size:1.3em;
+  padding:6px 8px;
+  margin:0 2px;
+}
+
+.toolbar-divider {
+  width:1px;height:24px;
+  background:#ccc;
+  margin:0 4px;
+}
+
 .sort-wrapper { position:relative; }
+.sort-divider {
+  width:1px;height:24px;
+  background:#ccc;
+  margin:0 4px;
+}
+
 .sort-options {
-  position:absolute; top:100%; right:0;
-  background:#fff; border:1px solid #888;
-  border-radius:4px; box-shadow:0 2px 6px rgba(0,0,0,0.2);
-  margin-top:4px; z-index:10;
+  position:absolute;top:100%;right:0;
+  background:#fff;border:1px solid #888;
+  border-radius:4px;box-shadow:0 2px 6px rgba(0,0,0,0.2);
+  z-index:10;
 }
 .sort-options>div {
-  padding:8px 12px; cursor:pointer; white-space:nowrap;
+  padding:8px 12px;cursor:pointer;
 }
-.sort-options>div:hover {
-  background:#f0f0f0;
-}
+.sort-options>div:hover { background:#f0f0f0; }
 
-/* ================ רשימת משימות ================ */
 .task-list { margin-top:12px; }
 .task-item {
-  margin-bottom:8px;
-  transition: background-color .3s;
+  margin-bottom:8px;transition:background-color .3s;
 }
-/* צבע שורה לפי סטטוס */
-.task-item[data-status="טרם טופל"] {
-  background: rgba(255,0,0,0.1);
-}
-.task-item[data-status="בטיפול"] {
-  background: rgba(0,128,0,0.1);
-}
-.task-item[data-status="restore"] {
-  background: #f0f0f0;
-}
+.task-item[data-status="טרם טופל"] { background:rgba(255,0,0,0.1); }
+.task-item[data-status="בטיפול"]    { background:rgba(0,128,0,0.1); }
+.task-item[data-status="restore"]   { background:#f0f0f0; }
+
 .task-details {
-  display:flex; align-items:center;
-  border:1px solid #ddd; border-radius:4px;
+  display:flex;align-items:center;
+  border:1px solid #ddd;border-radius:4px;
   padding:8px;
 }
-.task-title { flex:1; text-align:left; cursor:pointer; }
-.divider {
-  width:1px; height:1.5em; background:#ccc; margin:0 8px;
-}
+.task-title { flex:1;cursor:pointer; }
+.divider { width:1px;height:1.5em;background:#ccc;margin:0 8px; }
 
-/* ================ סטטוס ================ */
 .task-status {
-  padding:4px 8px; cursor:pointer;
-  font-weight:600;
+  padding:4px 8px;cursor:pointer;font-weight:600;
 }
-.status-pending     { color:red;    }
-.status-in-progress { color:green;  }
-/* restore/out-of-completed */
+.status-pending     { color:red; }
+.status-in-progress { color:green; }
+
 .restore-btn,
 .completed-status {
-  color:#888; background:none; border:none;
-  padding:4px 8px; cursor:pointer;
+  color:#888;background:none;border:none;
+  padding:4px 8px;cursor:pointer;
 }
 
-/* ================ Completed section ================ */
 .completed-divider {
-  border:none; border-top:1px solid #888;
+  border:none;border-top:1px solid #888;
   margin:16px 0 8px;
 }
 .completed-header {
-  font-weight:bold; margin-bottom:8px; text-align:left;
+  font-weight:bold;margin-bottom:8px;text-align:left;
 }
