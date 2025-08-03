@@ -1,4 +1,3 @@
-// src/TaskForm.js
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import './TaskForm.css';
@@ -17,16 +16,14 @@ export default function TaskForm() {
   const [loading, setLoading] = useState(isEdit);
   const [error, setError]     = useState(null);
 
-  // Helper: convert returned date (Date object or ISO string) into "YYYY-MM-DD" for <input type="date">
+  // convert returned date (Date object or ISO string) into "YYYY-MM-DD" for <input type="date">
   const parseDateToInput = dateValue => {
     if (!dateValue) return '';
     // if it's already a string in ISO form
     if (typeof dateValue === 'string' && dateValue.includes('T')) {
       return dateValue.split('T')[0];
     }
-    // else assume it's a Date object (or string "YYYY-MM-DD")
     const d = new Date(dateValue);
-    // adjust for timezone so we get the local date correctly
     const tzOffsetMs = d.getTimezoneOffset() * 60000;
     const localISO   = new Date(d.getTime() - tzOffsetMs).toISOString();
     return localISO.split('T')[0];
