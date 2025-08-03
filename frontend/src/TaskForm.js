@@ -105,7 +105,7 @@ export default function TaskForm() {
     <div className="centered-text">
       <div className="app-container">
         <header className="header">
-          <h2>{isEdit ? 'ערוך משימה' : 'משימה חדשה'}</h2>
+          <h2>{isEdit ? 'Edit Task' : 'Create Task'}</h2>
         </header>
 
         <form onSubmit={handleSubmit} className="task-form">
