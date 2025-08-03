@@ -47,9 +47,9 @@ export default function App() {
     <>
       {/* קלטים מוסתרים */}
       <input ref={brushInputRef} type="file" accept="image/*"
-             onChange={handleImageChange} style={{ display:'none' }} />
+        onChange={handleImageChange} style={{ display: 'none' }} />
       <input ref={colorInputRef} type="color" value={bgColor}
-             onChange={handleColorChange} style={{ display:'none' }} />
+        onChange={handleColorChange} style={{ display: 'none' }} />
 
       <div className="centered-text" style={containerStyle}>
         <div className="app-container">
@@ -60,47 +60,47 @@ export default function App() {
                   pickImage={pickImage}
                   pickColor={pickColor}
                 />
-              }/>
+              } />
               <Route path="/tasks/new" element={
                 <TaskForm
                   pickImage={pickImage}
                   pickColor={pickColor}
                 />
-              }/>
+              } />
               <Route path="/tasks/:id" element={
                 <TaskForm
                   pickImage={pickImage}
                   pickColor={pickColor}
                 />
-              }/>
+              } />
             </Routes>
           </BrowserRouter>
         </div>
       </div>
-      <ToastContainer position="bottom-right"/>
+      <ToastContainer position="bottom-right" />
     </>
   );
 }
 
 function Home({ pickImage, pickColor }) {
-  const [tasks, setTasks]         = useState([]);
-  const [loading, setLoading]     = useState(true);
-  const [error, setError]         = useState(null);
-  const [sortCriteria, setSortCriteria]   = useState(() => localStorage.getItem('sortCriteria') || null);
+  const [tasks, setTasks] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [sortCriteria, setSortCriteria] = useState(() => localStorage.getItem('sortCriteria') || null);
   const [sortDirection, setSortDirection] = useState(() => localStorage.getItem('sortDirection') || 'desc');
   const [showSortOptions, setShowSortOptions] = useState(false);
 
-  const [headerTitle, setHeaderTitle]         = useState('TaskMaster');
+  const [headerTitle, setHeaderTitle] = useState('TaskMaster');
   const [isEditingHeader, setIsEditingHeader] = useState(false);
 
   const navigate = useNavigate();
-  const sortRef  = useRef();
-  const today    = new Date().setHours(0,0,0,0);
+  const sortRef = useRef();
+  const today = new Date().setHours(0, 0, 0, 0);
 
   const statusLabels = {
     'טרם טופל': 'Pending',
-    'בטיפול':   'In Progress',
-    'בוצע':     'Completed'
+    'בטיפול': 'In Progress',
+    'בוצע': 'Completed'
   };
 
   useEffect(() => {
@@ -133,19 +133,19 @@ function Home({ pickImage, pickColor }) {
     if (!sortCriteria) return tasks;
     const arr = [...tasks];
     const dir = sortDirection === 'asc' ? 1 : -1;
-    arr.sort((a,b) => {
+    arr.sort((a, b) => {
       let cmp = 0;
-      switch(sortCriteria) {
+      switch (sortCriteria) {
         case 'title':
           cmp = a.title.localeCompare(b.title); break;
         case 'status': {
-          const order = ['טרם טופל','בטיפול','בוצע'];
+          const order = ['טרם טופל', 'בטיפול', 'בוצע'];
           cmp = order.indexOf(a.status) - order.indexOf(b.status); break;
         }
         case 'priority':
           cmp = Number(a.priority) - Number(b.priority); break;
         case 'due_date':
-          cmp = (new Date(a.due_date).getTime()||0) - (new Date(b.due_date).getTime()||0);
+          cmp = (new Date(a.due_date).getTime() || 0) - (new Date(b.due_date).getTime() || 0);
           break;
         default: cmp = 0;
       }
@@ -155,9 +155,9 @@ function Home({ pickImage, pickColor }) {
   }, [tasks, sortCriteria, sortDirection]);
 
   if (loading) return <div className="loading">Loading…</div>;
-  if (error)   return <div className="error">Error: {error}</div>;
+  if (error) return <div className="error">Error: {error}</div>;
 
-  const activeTasks    = sortedTasks.filter(t => t.status !== 'בוצע');
+  const activeTasks = sortedTasks.filter(t => t.status !== 'בוצע');
   const completedTasks = sortedTasks.filter(t => t.status === 'בוצע');
 
   return (
@@ -170,7 +170,7 @@ function Home({ pickImage, pickColor }) {
             autoFocus
             onBlur={() => setIsEditingHeader(false)}
             onChange={e => setHeaderTitle(e.target.value)}
-            onKeyDown={e => e.key==='Enter' && setIsEditingHeader(false)}
+            onKeyDown={e => e.key === 'Enter' && setIsEditingHeader(false)}
           />
         ) : (
           <h1 onClick={() => setIsEditingHeader(true)}>
@@ -189,11 +189,11 @@ function Home({ pickImage, pickColor }) {
         <div className="toolbar-right">
           <div className="sort-wrapper" ref={sortRef}>
             <button className="btn sort-btn" onClick={() => setShowSortOptions(s => !s)}>Sort</button>
-            <button className="btn toggle-btn" onClick={() => setSortDirection(d => d==='desc'?'asc':'desc')}>⇅</button>
+            <button className="btn toggle-btn" onClick={() => setSortDirection(d => d === 'desc' ? 'asc' : 'desc')}>⇅</button>
             {showSortOptions && (
               <div className="sort-options">
-                <div onClick={() => { setSortCriteria('title');    setSortDirection('desc'); setShowSortOptions(false); }}>Name</div>
-                <div onClick={() => { setSortCriteria('status');   setSortDirection('desc'); setShowSortOptions(false); }}>Status</div>
+                <div onClick={() => { setSortCriteria('title'); setSortDirection('desc'); setShowSortOptions(false); }}>Name</div>
+                <div onClick={() => { setSortCriteria('status'); setSortDirection('desc'); setShowSortOptions(false); }}>Status</div>
                 <div onClick={() => { setSortCriteria('priority'); setSortDirection('desc'); setShowSortOptions(false); }}>Priority</div>
                 <div onClick={() => { setSortCriteria('due_date'); setSortDirection('desc'); setShowSortOptions(false); }}>Due Date</div>
               </div>
@@ -212,20 +212,20 @@ function Home({ pickImage, pickColor }) {
           >
             <div className="task-details">
               <span className="task-title">{task.title}</span>
-              <span className="divider"/>
+              <span className="divider" />
               <span
                 className="task-status"
                 onClick={e => {
                   e.stopPropagation();
-                  const statuses = ['טרם טופל','בטיפול','בוצע'];
-                  const next = statuses[(statuses.indexOf(task.status)+1)%statuses.length];
+                  const statuses = ['טרם טופל', 'בטיפול', 'בוצע'];
+                  const next = statuses[(statuses.indexOf(task.status) + 1) % statuses.length];
                   fetch(`http://localhost:5000/api/tasks/${task.id}`, {
-                    method:'PUT',
-                    headers:{ 'Content-Type':'application/json' },
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ ...task, status: next })
                   })
-                  .then(r => r.json())
-                  .then(u => setTasks(ts => ts.map(t => t.id===u.id?u:t)));
+                    .then(r => r.json())
+                    .then(u => setTasks(ts => ts.map(t => t.id === u.id ? u : t)));
                 }}
               >
                 {statusLabels[task.status]}
@@ -234,9 +234,9 @@ function Home({ pickImage, pickColor }) {
           </div>
         ))}
 
-        {completedTasks.length>0 && (
+        {completedTasks.length > 0 && (
           <>
-            <hr className="completed-divider"/>
+            <hr className="completed-divider" />
             <div className="completed-header">Completed ({completedTasks.length})</div>
             {completedTasks.map(task => (
               <div
@@ -247,22 +247,22 @@ function Home({ pickImage, pickColor }) {
               >
                 <div className="task-details">
                   <span className="task-title">{task.title}</span>
-                  <span className="divider"/>
+                  <span className="divider" />
                   <button
                     className="restore-btn"
                     onClick={e => {
                       e.stopPropagation();
-                      const due = new Date(task.due_date).setHours(0,0,0,0);
+                      const due = new Date(task.due_date).setHours(0, 0, 0, 0);
                       if (due < today) {
                         navigate(`/tasks/${task.id}`);
                       } else {
                         fetch(`http://localhost:5000/api/tasks/${task.id}`, {
-                          method:'PUT',
-                          headers:{ 'Content-Type':'application/json' },
+                          method: 'PUT',
+                          headers: { 'Content-Type': 'application/json' },
                           body: JSON.stringify({ ...task, status: 'טרם טופל' })
                         })
-                        .then(r => r.json())
-                        .then(u => setTasks(ts => ts.map(t => t.id===u.id?u:t)));
+                          .then(r => r.json())
+                          .then(u => setTasks(ts => ts.map(t => t.id === u.id ? u : t)));
                       }
                     }}
                   >

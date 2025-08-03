@@ -8,13 +8,13 @@ export default function TaskForm() {
   const navigate = useNavigate();
 
   const [form, setForm] = useState({
-    title:       '',
+    title: '',
     description: '',
-    due_date:    '',
-    priority:    '',
+    due_date: '',
+    priority: '',
   });
   const [loading, setLoading] = useState(isEdit);
-  const [error, setError]     = useState(null);
+  const [error, setError] = useState(null);
 
   // convert returned date (Date object or ISO string) into "YYYY-MM-DD" for <input type="date">
   const parseDateToInput = dateValue => {
@@ -25,7 +25,7 @@ export default function TaskForm() {
     }
     const d = new Date(dateValue);
     const tzOffsetMs = d.getTimezoneOffset() * 60000;
-    const localISO   = new Date(d.getTime() - tzOffsetMs).toISOString();
+    const localISO = new Date(d.getTime() - tzOffsetMs).toISOString();
     return localISO.split('T')[0];
   };
 
@@ -38,10 +38,10 @@ export default function TaskForm() {
       })
       .then(data => {
         setForm({
-          title:       data.title        || '',
-          description: data.description  || '',
-          due_date:    parseDateToInput(data.due_date),
-          priority:    data.priority     || '',
+          title: data.title || '',
+          description: data.description || '',
+          due_date: parseDateToInput(data.due_date),
+          priority: data.priority || '',
         });
         setLoading(false);
       })
@@ -63,11 +63,11 @@ export default function TaskForm() {
   const handleSubmit = e => {
     e.preventDefault();
     const payload = {
-      title:       form.title,
+      title: form.title,
       description: form.description,
-      due_date:    form.due_date,    
-      priority:    form.priority,
-      status:      'טרם טופל',
+      due_date: form.due_date,
+      priority: form.priority,
+      status: 'טרם טופל',
     };
     const endpoint = isEdit
       ? `http://localhost:5000/api/tasks/${id}`
@@ -99,7 +99,7 @@ export default function TaskForm() {
   };
 
   if (loading) return <div className="loading">טוען…</div>;
-  if (error)   return <div className="error">שגיאה: {error}</div>;
+  if (error) return <div className="error">שגיאה: {error}</div>;
 
   return (
     <div className="centered-text">
