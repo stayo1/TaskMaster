@@ -150,7 +150,6 @@ cron.schedule('0 * * * *', async () => {
     }
 });
 
-
 // הפעלת השרת
 server.listen(port, '0.0.0.0', () => {
     console.log(`Server listening on port ${port}`);
